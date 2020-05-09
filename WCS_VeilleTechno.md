@@ -20,6 +20,7 @@
 * [GeeksForGeeks](https://www.geeksforgeeks.org/) : 
 
 ## PANDAS
+<img src=https://miro.medium.com/max/1080/1*3qZ_SHAVX6RAbRMHo4NCcA.jpeg width="15%">
 * [PANDAS BASIC Cheat Sheet](https://github.com/roussetcedric/WCS_Public/blob/master/PANDAS_BASIC_Sheet.pdf) : PANDAS BASIC Cheat Sheet
 * [PANDAS Cheat Sheet](https://github.com/roussetcedric/WCS_Public/blob/master/PANDAS_Sheet.pdf) : PANDAS Cheat Sheet
 
