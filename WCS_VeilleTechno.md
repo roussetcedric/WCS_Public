@@ -15,16 +15,14 @@
 * [Code.gov](https://code.gov/) : U.S. Government’s open code
 * [Nasa.github](https://nasa.github.io/data-nasa-gov-frontpage/) : NASA's open data
 
-# PYTHON
-<img src=https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/768px-Python-logo-notext.svg.png width="15%">
+# <img src=https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/768px-Python-logo-notext.svg.png width="10%">
 * [GeeksForGeeks](https://www.geeksforgeeks.org/) : 
 
-## PANDAS <img src=https://miro.medium.com/max/1080/1*3qZ_SHAVX6RAbRMHo4NCcA.jpeg width="15%">
-
+## <img src=https://miro.medium.com/max/1080/1*3qZ_SHAVX6RAbRMHo4NCcA.jpeg width="15%">
 * [PANDAS BASIC Cheat Sheet](https://github.com/roussetcedric/WCS_Public/blob/master/PANDAS_BASIC_Sheet.pdf) : PANDAS BASIC Cheat Sheet
 * [PANDAS Cheat Sheet](https://github.com/roussetcedric/WCS_Public/blob/master/PANDAS_Sheet.pdf) : PANDAS Cheat Sheet
 
-## NUMPY
+## <img src=https://user-images.githubusercontent.com/1217238/65354639-dd928f80-dba4-11e9-833b-bc3e8c6a737d.png width="10%"> 
 * [NUMPY Cheat Sheet](https://github.com/roussetcedric/WCS_Public/blob/master/NUMPY_Sheet.pdf) : NUMPY Cheat Sheet
 
 ## FOLIUM
