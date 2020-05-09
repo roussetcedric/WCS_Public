@@ -19,11 +19,11 @@
 * [GeeksForGeeks](https://www.geeksforgeeks.org/) : 
 
 ## PANDAS
-* [PANDAS BASIC Cheat Sheet](https://github.com/roussetcedric/WCS/blob/master/VEILLE/PANDAS_BASIC_Sheet.pdf) : PANDAS BASIC Cheat Sheet
-* [PANDAS Cheat Sheet](https://github.com/roussetcedric/WCS/blob/master/VEILLE/PANDAS_Sheet.pdf) : PANDAS Cheat Sheet
+* [PANDAS BASIC Cheat Sheet](https://github.com/roussetcedric/WCS_Public/blob/master/PANDAS_BASIC_Sheet.pdf) : PANDAS BASIC Cheat Sheet
+* [PANDAS Cheat Sheet](https://github.com/roussetcedric/WCS_Public/blob/master/PANDAS_Sheet.pdf) : PANDAS Cheat Sheet
 
 ## NUMPY
-* [NUMPY Cheat Sheet](https://github.com/roussetcedric/WCS/blob/master/VEILLE/NUMPY_Sheet.pdf) : NUMPY Cheat Sheet
+* [NUMPY Cheat Sheet](https://github.com/roussetcedric/WCS_Public/blob/master/NUMPY_Sheet.pdf) : NUMPY Cheat Sheet
 
 ## FOLIUM
 * [Folium Quick Start](https://python-visualization.github.io/folium/quickstart.html) : Beginner step By Step
@@ -31,13 +31,13 @@
 ## PLOT
 ### MATPLOTLIB
 * [Matplotlib](https://matplotlib.org/index.html) : Matplotlib Online Documentation
-* [MATPLOTLIB Cheat Sheet](https://github.com/roussetcedric/WCS/blob/master/VEILLE/MATPLOTLIB_Sheet.pdf) : MATPLOTLIB Cheat Sheet
+* [MATPLOTLIB Cheat Sheet](https://github.com/roussetcedric/WCS_Public/blob/master/MATPLOTLIB_Sheet.pdf) : MATPLOTLIB Cheat Sheet
 
 ### SEABORN
-* [SEABORN Cheat Sheet](https://github.com/roussetcedric/WCS/blob/master/VEILLE/SEABORN_Sheet.pdf) : SEABORN Cheat Sheet
+* [SEABORN Cheat Sheet](https://github.com/roussetcedric/WCS_Public/blob/master/SEABORN_Sheet.pdf) : SEABORN Cheat Sheet
 
 ### BOKEH
-* [BOKEH Cheat Sheet](https://github.com/roussetcedric/WCS/blob/master/VEILLE/BOKEH_Sheet.pdf) : BOKEH Cheat Sheet
+* [BOKEH Cheat Sheet](https://github.com/roussetcedric/WCS_Public/blob/master/BOKEH_Sheet.pdf) : BOKEH Cheat Sheet
 
 
 ## STATISTIQUE
