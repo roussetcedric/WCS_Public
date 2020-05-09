@@ -16,7 +16,7 @@
 * [Nasa.github](https://nasa.github.io/data-nasa-gov-frontpage/) : NASA's open data
 
 # PYTHON
-![Python](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/768px-Python-logo-notext.svg.png)
+![Python](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/768px-Python-logo-notext.svg.png | width=50)
 * [GeeksForGeeks](https://www.geeksforgeeks.org/) : 
 
 ## PANDAS
