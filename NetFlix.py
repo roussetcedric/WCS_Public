@@ -14,16 +14,17 @@ def DisplayPoster(UrlToDisplay) :
       f = io.BytesIO(url.read())
     img = Image.open(f)
     st.image(img,width=400)
+    
+def DisplayDataFrame(Option):
+  if Option != [] :
+    df_DisplayTest = df_Movies.sort_values(by=Option)[0:5]
+    st.dataframe(df_DisplayTest)
 
 # Define Side Menu ----------------------------------------------
 st.sidebar.title("Film Survey :happy:")
 Choix = st.sidebar.multiselect("Which do you like the most?",
                                 ("Genre","Director","Acteurs"))
-if Choix == [] :
-  df_DisplayTest = df_Movies.sort_values(by=["primaryTitle"])[0:5]
-else :
-  df_DisplayTest = df_Movies.sort_values(by=Choix)[0:5]
-st.dataframe(df_DisplayTest)
+DisplayDataFrame(Choix)
 
 # Define the Main Page
 st.write("Voici la sélection de film basée sur")
