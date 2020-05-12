@@ -5,16 +5,15 @@ import urllib.request
 import io
 
 st.title('Test NetFlix')
+st.write("""
+# My first app
+Hello *world!*
+""")
 
 # Define Side Menu ----------------------------------------------
 st.sidebar.title("Film Survey :movie:")
 movie = st.sidebar.multiselect("Which do you like the most?",
                                 ("Vanilla Yogurt","Berry Yogurt","Greek Yogurt"))
-
-st.write("""
-# My first app
-Hello *world!*
-""")
 
 x = st.slider('x')
 st.write(x, 'squared is', x * x)
