@@ -22,7 +22,7 @@ movie = st.sidebar.multiselect("Which do you like the most?",
 # Define the Main Page
 Titre = "Voici la sélection de film basé sur"
 Param = ""
-st.title(Titre + Param)
+st.write(Titre + Param)
 
 x = st.slider('x',1,5)
 DisplayPoster(df_Movies.iloc[x-1]["posterURL"])
@@ -30,12 +30,9 @@ DisplayPoster(df_Movies.iloc[x-1]["posterURL"])
 if st.button('Titre'):
   Param = df_Movies.iloc[x-1]["primaryTitle"]
   st.write(df_Movies.iloc[x-1]["primaryTitle"])
-  st.title(Titre + Param)
 if st.button('Genre'):
   Param = df_Movies.iloc[x-1]["genres"]
   st.write(df_Movies.iloc[x-1]["genres"])
-  st.title(Titre + Param)
 if st.button('Director'):
   Param = df_Movies.iloc[x-1]["directorsName"]
-  st.write(df_Movies.iloc[x-1]["directorsName"])
-  st.title(Titre + Param)
+  st.write(df_Movies.iloc[x-1]["directorsName"]
