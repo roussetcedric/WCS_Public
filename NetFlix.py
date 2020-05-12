@@ -28,5 +28,9 @@ with urllib.request.urlopen(URL) as url:
 img = Image.open(f)
 st.image(img, caption='Sunrise by the mountains',use_column_width=True)
 
-if st.button('animate'):
+if st.button('Titre'):
   st.write(df_Movies.iloc[x-1]["primaryTitle"])
+if st.button('Genre'):
+  st.write(df_Movies.iloc[x-1]["genres"])
+if st.button('Director'):
+  st.write(df_Movies.iloc[x-1]["directorNames"])
