@@ -20,7 +20,7 @@ movie = st.sidebar.multiselect("Which do you like the most?",
                                 ("Vanilla Yogurt","Berry Yogurt","Greek Yogurt"))
 
 # Define the Main Page
-Titre = "Voici la sélection de film basé sur"
+Titre = "Voici la sélection de film basée sur"
 Param = ""
 st.write(Titre + Param)
 
