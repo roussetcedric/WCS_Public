@@ -15,9 +15,10 @@ def DisplayPoster(UrlToDisplay) :
     st.image(img,width=400)
     
 def DisplayDataFrame(Option):
-  if Option != [] :
-    df_DisplayTest = df_Movies.sort_values(by=Option)[0:5]
-    st.dataframe(df_DisplayTest)
+  st.write(Option)
+  #if Option != [] :
+    #df_DisplayTest = df_Movies.sort_values(by=Option)[0:5]
+  st.dataframe(df_Movies[0:5])
 
 # Define Side Menu ----------------------------------------------
 st.sidebar.title("Film Survey :happy:")
