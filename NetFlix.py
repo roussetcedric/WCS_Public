@@ -35,4 +35,4 @@ if st.button('Genre'):
   st.write(df_Movies.iloc[x-1]["genres"])
 if st.button('Director'):
   Param = df_Movies.iloc[x-1]["directorsName"]
-  st.write(df_Movies.iloc[x-1]["directorsName"]
+  st.write(df_Movies.iloc[x-1]["directorsName"])
