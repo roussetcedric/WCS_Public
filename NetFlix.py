@@ -6,6 +6,11 @@ import io
 
 st.title('Test NetFlix')
 
+# Define Side Menu ----------------------------------------------
+st.sidebar.title("Film Survey :movie:")
+movie = st.sidebar.multiselect("Which do you like the most?",
+                                ("Vanilla Yogurt","Berry Yogurt","Greek Yogurt"))
+
 st.write("""
 # My first app
 Hello *world!*
