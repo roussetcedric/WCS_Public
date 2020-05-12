@@ -9,7 +9,7 @@ st.dataframe(df_Movies)
 
 def DisplayPoster(UrlToDisplay) :
   if UrlToDisplay :
-    with urllib.request.urlopen(URL) as url:
+    with urllib.request.urlopen(UrlToDisplay) as url:
       f = io.BytesIO(url.read())
     img = Image.open(f)
     st.image(img, caption=df_Movies.iloc[x-1]["primaryTitle"],width=150)
