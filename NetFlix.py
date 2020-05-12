@@ -13,7 +13,7 @@ def DisplayPoster(UrlToDisplay) :
     with urllib.request.urlopen(UrlToDisplay) as url:
       f = io.BytesIO(url.read())
     img = Image.open(f)
-    st.image(img, caption=df_Movies.iloc[x-1]["primaryTitle"],width=400)
+    st.image(img,width=400)
 
 # Define Side Menu ----------------------------------------------
 st.sidebar.title("Film Survey :happy:")
@@ -26,7 +26,7 @@ st.write(Choix)
 st.write(Param)
 
 x = st.slider('x',1,5)
-DisplayPoster(df_Movies.iloc[x-1]["posterURL"])
+DisplayPoster(df_Display.iloc[x-1]["posterURL"])
 
 if st.button('Titre'):
   Param = df_Movies.iloc[x-1]["primaryTitle"]
