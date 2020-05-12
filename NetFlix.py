@@ -18,6 +18,7 @@ df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/mas
 st.dataframe(df_Movies) 
 
 URL = df_Movies.iloc[x]["posterURL"]
+st.write(URL)
 
 with urllib.request.urlopen(URL) as url:
     f = io.BytesIO(url.read())
