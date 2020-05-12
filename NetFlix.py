@@ -25,7 +25,7 @@ Choix = st.sidebar.multiselect("Which do you like the most?",
                                 ("Genre","Director","Acteurs"))
 
 # Define the Main Page
-st.write("Voici la sélection de film basée sur")
+st.write("Voici la sélection de film basée sur les paramètres :")
 st.write(Choix)
 
 DisplayDataFrame(Choix)
