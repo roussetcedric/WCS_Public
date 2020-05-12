@@ -6,7 +6,6 @@ import io
 
 df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
 Param = "Initilialisation"
-x = 0
 
 def DisplayPoster(UrlToDisplay) :
   if UrlToDisplay :
