@@ -5,7 +5,6 @@ import urllib.request
 import io
 
 df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
-df_Display = df_Movies.sort_values(by=['primaryTitle'])[0:5]
 Param = "Initilialisation"
 x = 0
 
@@ -26,10 +25,8 @@ st.write("Voici la sélection de film basée sur")
 st.write(Choix)
 st.write(Param)
 
-DisplayPoster(df_Movies.iloc[x-1]["posterURL"])
 x = st.slider('x',1,5)
-
-st.dataframe(df_Display) 
+DisplayPoster(df_Movies.iloc[x-1]["posterURL"])
 
 if st.button('Titre'):
   Param = df_Movies.iloc[x-1]["primaryTitle"]
@@ -43,3 +40,5 @@ if st.button('Director'):
   Param = df_Movies.iloc[x-1]["directorsName"]
   st.write(df_Movies.iloc[x-1]["directorsName"])
   df_Display = df_Movies.sort_values(by=['directorsName'])[0:5]
+  
+st.dataframe(df_Display) 
