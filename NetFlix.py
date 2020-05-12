@@ -5,6 +5,7 @@ import urllib.request
 import io
 
 df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
+df_Display = []
 Param = "Initilialisation"
 
 def DisplayPoster(UrlToDisplay) :
@@ -40,4 +41,4 @@ if st.button('Director'):
   st.write(df_Movies.iloc[x-1]["directorsName"])
   df_Display = df_Movies.sort_values(by=['directorsName'])[0:5]
   
-st.dataframe(df_Display) 
+st.dataframe(df_Display)
