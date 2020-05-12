@@ -15,14 +15,13 @@ def DisplayPoster(UrlToDisplay) :
     st.image(img, caption=df_Movies.iloc[x-1]["primaryTitle"],width=400)
 
 # Define Side Menu ----------------------------------------------
-st.sidebar.title("Film Survey :movie:")
-movie = st.sidebar.multiselect("Which do you like the most?",
-                                ("Vanilla Yogurt","Berry Yogurt","Greek Yogurt"))
+st.sidebar.title("Film Survey :happy:")
+Choix = st.sidebar.multiselect("Which do you like the most?",
+                                ("Genre","Director","Acteurs"))
 
 # Define the Main Page
-Titre = "Voici la sélection de film basée sur"
-Param = ""
-st.write(Titre + Param)
+st.write("Voici la sélection de film basée sur")
+st.write(Choix)
 
 x = st.slider('x',1,5)
 DisplayPoster(df_Movies.iloc[x-1]["posterURL"])
