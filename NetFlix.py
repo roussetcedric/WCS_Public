@@ -25,9 +25,6 @@ st.write("Voici la sélection de film basée sur")
 st.write(Choix)
 st.write(Param)
 
-x = st.slider('x',1,5)
-DisplayPoster(df_Display.iloc[x-1]["posterURL"])
-
 if st.button('Titre'):
   Param = df_Movies.iloc[x-1]["primaryTitle"]
   st.write(df_Movies.iloc[x-1]["primaryTitle"])
@@ -42,3 +39,6 @@ if st.button('Director'):
   df_Display = df_Movies.sort_values(by=['directorsName'])[0:5]
   
 st.dataframe(df_Display)
+
+x = st.slider('x',1,5)
+DisplayPoster(df_Display.iloc[x-1]["posterURL"])
