@@ -20,6 +20,9 @@ st.sidebar.title("Film Survey :happy:")
 Choix = st.sidebar.multiselect("Which do you like the most?",
                                 ("Genre","Director","Acteurs"))
 
+df_DisplayTest = df_Movies.sort_values(by=Choix)[0:5]
+st.dataframe(df_DisplayTest)
+
 # Define the Main Page
 st.write("Voici la sélection de film basée sur")
 st.write(Choix)
