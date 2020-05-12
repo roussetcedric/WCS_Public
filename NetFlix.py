@@ -26,11 +26,7 @@ with urllib.request.urlopen(URL) as url:
     f = io.BytesIO(url.read())
 
 img = Image.open(f)
-st.image(img, caption='Sunrise by the mountains',use_column_width=True)
-
-row1col1.button("Titre")
-row1col2.button("Genre")
-row1col3.button("Director")
+st.image(img, caption=df_Movies.iloc[x-1]["primaryTitle"],use_column_width=True)
 
 if st.button('Titre'):
   st.write(df_Movies.iloc[x-1]["primaryTitle"])
