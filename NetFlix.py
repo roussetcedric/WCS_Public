@@ -17,7 +17,7 @@ st.write(x, 'squared is', x * x)
 df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
 st.dataframe(df_Movies) 
 
-URL = df_Movies.iloc[0]["posterURL"]
+URL = df_Movies.iloc[x]["posterURL"]
 
 with urllib.request.urlopen(URL) as url:
     f = io.BytesIO(url.read())
