@@ -12,7 +12,7 @@ def DisplayPoster(UrlToDisplay) :
     with urllib.request.urlopen(UrlToDisplay) as url:
       f = io.BytesIO(url.read())
     img = Image.open(f)
-    st.image(img, caption=df_Movies.iloc[x-1]["primaryTitle"],width=150)
+    st.image(img, caption=df_Movies.iloc[x-1]["primaryTitle"],width=400)
 
 # Define Side Menu ----------------------------------------------
 st.sidebar.title("Film Survey :movie:")
