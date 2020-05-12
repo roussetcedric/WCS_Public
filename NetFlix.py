@@ -30,9 +30,12 @@ DisplayPoster(df_Movies.iloc[x-1]["posterURL"])
 if st.button('Titre'):
   Param = df_Movies.iloc[x-1]["primaryTitle"]
   st.write(df_Movies.iloc[x-1]["primaryTitle"])
+  st.title(Titre + Param)
 if st.button('Genre'):
   Param = df_Movies.iloc[x-1]["genres"]
   st.write(df_Movies.iloc[x-1]["genres"])
+  st.title(Titre + Param)
 if st.button('Director'):
   Param = df_Movies.iloc[x-1]["directorsName"]
   st.write(df_Movies.iloc[x-1]["directorsName"])
+  st.title(Titre + Param)
