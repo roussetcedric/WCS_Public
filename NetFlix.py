@@ -6,7 +6,6 @@ import io
 
 df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
 df_Display = pd.DataFrame()
-Param = "Initilialisation"
 
 def DisplayPoster(UrlToDisplay) :
   if UrlToDisplay :
@@ -24,12 +23,12 @@ def DisplayDataFrame(Option):
 st.sidebar.title("Film Survey :happy:")
 Choix = st.sidebar.multiselect("Which do you like the most?",
                                 ("Genre","Director","Acteurs"))
-DisplayDataFrame(Choix)
 
 # Define the Main Page
 st.write("Voici la sélection de film basée sur")
 st.write(Choix)
-st.write(Param)
+
+DisplayDataFrame(Choix)
 
 if st.button('Titre'):
   Param = df_Movies.iloc[x-1]["primaryTitle"]
