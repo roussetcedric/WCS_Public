@@ -37,5 +37,6 @@ GenreList_list = st.sidebar.multiselect("Select Genre", df_MovieSelected.genres.
 if st.button('Validation des Parametres'):
   df_Display = DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
   st.dataframe(df_Display)
-  x = st.slider('x',1,5)
-  DisplayPoster(df_Display.iloc[x-1]["posterURL"])
+  
+x = st.slider('x',1,5)
+DisplayPoster(df_Display.iloc[x-1]["posterURL"])
