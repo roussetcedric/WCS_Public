@@ -19,7 +19,6 @@ def DisplayDataFrame(GenreList,DirectorList,ActorList):
   st.write(DirectorList)
   st.write(GenreList)
   df_Display = df_Movies[df_Movies["genres"].isin(GenreList)]
-  st.dataframe(df_Display)
   
 df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
 df_MovieSelected = df_Movies.iloc[0]
@@ -30,14 +29,15 @@ df_MovieSelected = df_Movies.iloc[0]
 st.sidebar.title("Film Filters")
 
 ActorList_list = st.sidebar.multiselect("Select Actor", df_MovieSelected.actorsName.split(","))
-DirectorList_list = st.sidebar.multiselect("Select Actor", df_MovieSelected.directorsName.split(","))
-GenreList_list = st.sidebar.multiselect("Select Actor", df_MovieSelected.genres.split(","))
+DirectorList_list = st.sidebar.multiselect("Select Director", df_MovieSelected.directorsName.split(","))
+GenreList_list = st.sidebar.multiselect("Select Genre", df_MovieSelected.genres.split(","))
 
 # Define the Main Page
 
 DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
-                         
-x = st.slider('x',1,df_Display.shape[0])
+st.dataframe(df_Display)
+
+x = st.slider('x',1,5)
 DisplayPoster(df_Display.iloc[x-1]["posterURL"])
 
 if st.button('Titre'):
