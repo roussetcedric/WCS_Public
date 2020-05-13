@@ -27,7 +27,7 @@ df_MovieSelected = df_Movies.iloc[0]
 #Checkbox for Hospitals
 st.sidebar.title("Film Filters")
 st.write(df_MovieSelected["actorsName"].str.split(","))
-#ActorList_list = st.sidebar.selectbox("Select Actor", df_MovieSelected["actorsName"].str.split(","))
+ActorList_list = st.sidebar.selectbox("Select Actor", df_MovieSelected.actorsName.split(","))
 
 Choix = st.sidebar.multiselect("Which do you like the most?",
                                 ("Genre","Director","Acteurs"))
