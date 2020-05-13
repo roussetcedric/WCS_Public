@@ -12,8 +12,10 @@ def DisplayPoster(UrlToDisplay) :
     img = Image.open(f)
     st.image(img,width=400)
     
-def DisplayDataFrame(Option):
-  st.write(Option)
+def DisplayDataFrame(GenreList,DirectorList,ActorList):
+  st.write(ActorList)
+  st.write(DirectorList)
+  st.write(GenreList)
   #if Option != [] :
     #df_DisplayTest = df_Movies.sort_values(by=Option)[0:5]
   st.dataframe(df_Movies[0:5])
@@ -29,17 +31,13 @@ st.sidebar.title("Film Filters")
 st.write(df_MovieSelected.actorsName.split(","))
 st.write(df_MovieSelected.directorsName.split(","))
 
-ActorList_list = st.sidebar.selectbox("Select Actor", df_MovieSelected.actorsName.split(","))
-DirectorList_list = st.sidebar.selectbox("Select Actor", df_MovieSelected.directorsName.split(","))
-
-Choix = st.sidebar.multiselect("Which do you like the most?",
-                                ("Genre","Director","Acteurs"))
+ActorList_list = st.sidebar.multiselect("Select Actor", df_MovieSelected.actorsName.split(","))
+DirectorList_list = st.sidebar.multiselect("Select Actor", df_MovieSelected.directorsName.split(","))
+GenreList_list = st.sidebar.multiselect("Select Actor", df_MovieSelected.genres.split(","))
 
 # Define the Main Page
-st.write("Voici la sélection de film basée sur les paramètres :")
-st.write(Choix)
 
-DisplayDataFrame(Choix)
+DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
 
 if st.button('Titre'):
   Param = df_Movies.iloc[x-1]["primaryTitle"]
