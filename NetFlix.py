@@ -19,6 +19,7 @@ def DisplayDataFrame(GenreList,DirectorList,ActorList):
   st.write(DirectorList)
   st.write(GenreList)
   df_Display = df_Movies[df_Movies["genres"].str.contains('|'.join(GenreList))]
+  st.dataframe(df_Display)
   
 df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
 df_MovieSelected = df_Movies.iloc[0]
@@ -37,6 +38,7 @@ if st.button('Validation des Parametres'):
   DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
 
 if st.button('Affichage des Parametres'):
+  st.write(df_Display.shape)
   st.dataframe(df_Display)
   
 x = st.slider('x',1,5)
