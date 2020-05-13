@@ -33,22 +33,8 @@ DirectorList_list = st.sidebar.multiselect("Select Director", df_MovieSelected.d
 GenreList_list = st.sidebar.multiselect("Select Genre", df_MovieSelected.genres.split(","))
 
 # Define the Main Page
-
-DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
-st.dataframe(df_Display)
-
-x = st.slider('x',1,5)
-DisplayPoster(df_Display.iloc[x-1]["posterURL"])
-
-if st.button('Titre'):
-  Param = df_Movies.iloc[x-1]["primaryTitle"]
-  st.write(df_Movies.iloc[x-1]["primaryTitle"])
-  df_Display = df_Movies.sort_values(by=['primaryTitle'])[0:5]
-if st.button('Genre'):
-  Param = df_Movies.iloc[x-1]["genres"]
-  st.write(df_Movies.iloc[x-1]["genres"])
-  df_Display = df_Movies.sort_values(by=['genres'])[0:5]
-if st.button('Director'):
-  Param = df_Movies.iloc[x-1]["directorsName"]
-  st.write(df_Movies.iloc[x-1]["directorsName"])
-  df_Display = df_Movies.sort_values(by=['directorsName'])[0:5]
+if st.button('Validation des Parametres'):
+  DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
+  st.dataframe(df_Display)
+  x = st.slider('x',1,5)
+  DisplayPoster(df_Display.iloc[x-1]["posterURL"])
