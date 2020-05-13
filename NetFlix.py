@@ -33,10 +33,12 @@ ActorList_list = st.sidebar.multiselect("Select Actor", df_MovieSelected.actorsN
 DirectorList_list = st.sidebar.multiselect("Select Director", df_MovieSelected.directorsName.split(","))
 GenreList_list = st.sidebar.multiselect("Select Genre", df_MovieSelected.genres.split(","))
 
+df_Display = DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
+st.dataframe(df_Display)
+
 # Define the Main Page
 if st.button('Validation des Parametres'):
-  df_Display = DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
-  st.dataframe(df_Display)
+  st.write('Validation des Parametres')
   
 x = st.slider('x',1,5)
 DisplayPoster(df_Display.iloc[x-1]["posterURL"])
