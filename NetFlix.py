@@ -18,7 +18,7 @@ def DisplayDataFrame(GenreList,DirectorList,ActorList):
   st.write(ActorList)
   st.write(DirectorList)
   st.write(GenreList)
-  df_Display = df_Movies[df_Movies["genres"] in GenreList
+  df_Display = df_Movies[df_Movies["genres"] in GenreList]
   st.dataframe(df_Display)
   
 df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
