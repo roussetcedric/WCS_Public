@@ -14,7 +14,7 @@ def DisplayPoster(UrlToDisplay) :
  
 df_Display = pd.DataFrame()
 def DisplayDataFrame(GenreList,DirectorList,ActorList):
-  st.write(DisplayDataFrameModule)
+  st.write("DisplayDataFrameModule")
   st.write(ActorList)
   st.write(DirectorList)
   st.write(GenreList)
