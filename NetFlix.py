@@ -26,7 +26,7 @@ def DisplayDataFrame(GenreList,DirectorList,ActorList):
 #df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
 df_Movies = pd.read_csv("https://drive.google.com/uc?id=10gZ-OIbxeylhxkHwxsar3D6FWj7c1qCg")
 df_MovieSelected = df_Movies.iloc[0]
-st.dataframe(df_Movies)
+# st.dataframe(df_Movies)
 # Define Side Menu ----------------------------------------------
 
 #Checkbox for Hospitals
@@ -37,7 +37,7 @@ DirectorList_list = st.sidebar.multiselect("Select Director", df_MovieSelected.d
 GenreList_list = st.sidebar.multiselect("Select Genre", df_MovieSelected.genres.split(","))
 
 df_Display = DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
-st.dataframe(df_Display)
+st.dataframe(df_Display.iloc[0:10])
 
 # Define the Main Page
 if st.button('Validation des Parametres'):
