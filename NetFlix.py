@@ -4,9 +4,7 @@ from PIL import Image
 import urllib.request
 import io
 
-df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
-df_Display = pd.DataFrame()
-
+# Define Function --------------------------------------------
 def DisplayPoster(UrlToDisplay) :
   if UrlToDisplay :
     with urllib.request.urlopen(UrlToDisplay) as url:
@@ -19,9 +17,17 @@ def DisplayDataFrame(Option):
   #if Option != [] :
     #df_DisplayTest = df_Movies.sort_values(by=Option)[0:5]
   st.dataframe(df_Movies[0:5])
+  
+df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
+df_Display = pd.DataFrame()
+
 
 # Define Side Menu ----------------------------------------------
-st.sidebar.title("Film Survey :happy:")
+
+#Checkbox for Hospitals
+st.sidebar.title("Film Filters")
+ActorList_list = st.sidebar.selectbox("Select Actor", df_MovieSelected["actorsName"].str.split(","))
+
 Choix = st.sidebar.multiselect("Which do you like the most?",
                                 ("Genre","Director","Acteurs"))
 
