@@ -37,7 +37,7 @@ GenreList_list = st.sidebar.multiselect("Select Actor", df_MovieSelected.genres.
 
 DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
                          
-x = st.slider('x',1,5)
+x = st.slider('x',1,df_Display.shape[0])
 DisplayPoster(df_Display.iloc[x-1]["posterURL"])
 
 if st.button('Titre'):
