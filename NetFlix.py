@@ -36,6 +36,9 @@ GenreList_list = st.sidebar.multiselect("Select Actor", df_MovieSelected.genres.
 # Define the Main Page
 
 DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
+                         
+x = st.slider('x',1,5)
+DisplayPoster(df_Display.iloc[x-1]["posterURL"])
 
 if st.button('Titre'):
   Param = df_Movies.iloc[x-1]["primaryTitle"]
@@ -49,6 +52,3 @@ if st.button('Director'):
   Param = df_Movies.iloc[x-1]["directorsName"]
   st.write(df_Movies.iloc[x-1]["directorsName"])
   df_Display = df_Movies.sort_values(by=['directorsName'])[0:5]
-  
-x = st.slider('x',1,5)
-DisplayPoster(df_Display.iloc[x-1]["posterURL"])
