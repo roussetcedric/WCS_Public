@@ -12,7 +12,7 @@ def DisplayPoster(UrlToDisplay) :
     img = Image.open(f)
     st.image(img,width=400)
  
-df_Display = pd.dataFrame()
+df_Display = pd.DataFrame()
 def DisplayDataFrame(GenreList,DirectorList,ActorList):
   st.write(DisplayDataFrameModule)
   st.write(ActorList)
