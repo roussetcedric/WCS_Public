@@ -12,14 +12,14 @@ def DisplayPoster(UrlToDisplay) :
     img = Image.open(f)
     st.image(img,width=400)
  
-df_Display = pd.DataFrame()
+#df_Display = pd.DataFrame()
 def DisplayDataFrame(GenreList,DirectorList,ActorList):
   st.write("DisplayDataFrameModule")
   st.write(ActorList)
   st.write(DirectorList)
   st.write(GenreList)
-  df_Display = df_Movies[df_Movies["genres"].str.contains('|'.join(GenreList))]
-  st.dataframe(df_Display)
+  df_DisplayLocal = df_Movies[df_Movies["genres"].str.contains('|'.join(GenreList))]
+  return df_DisplayLocal
   
 df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
 df_MovieSelected = df_Movies.iloc[0]
@@ -35,11 +35,7 @@ GenreList_list = st.sidebar.multiselect("Select Genre", df_MovieSelected.genres.
 
 # Define the Main Page
 if st.button('Validation des Parametres'):
-  DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
-
-if st.button('Affichage des Parametres'):
-  st.write(df_Display.shape)
+  df_Display = DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
   st.dataframe(df_Display)
-  
-x = st.slider('x',1,5)
-DisplayPoster(df_Display.iloc[x-1]["posterURL"])
+  x = st.slider('x',1,5)
+  DisplayPoster(df_Display.iloc[x-1]["posterURL"])
