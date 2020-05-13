@@ -11,25 +11,23 @@ def DisplayPoster(UrlToDisplay) :
       f = io.BytesIO(url.read())
     img = Image.open(f)
     st.image(img,width=400)
-    
+ 
+df_Display = pd.dataFrame()
 def DisplayDataFrame(GenreList,DirectorList,ActorList):
+  st.write(DisplayDataFrameModule)
   st.write(ActorList)
   st.write(DirectorList)
   st.write(GenreList)
-  #if Option != [] :
-    #df_DisplayTest = df_Movies.sort_values(by=Option)[0:5]
-  st.dataframe(df_Movies[0:5])
+  df_Display = df_Movies[df_Movies["genres"] in GenreList
+  st.dataframe(df_Display)
   
 df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
-df_Display = pd.DataFrame()
 df_MovieSelected = df_Movies.iloc[0]
 
 # Define Side Menu ----------------------------------------------
 
 #Checkbox for Hospitals
 st.sidebar.title("Film Filters")
-st.write(df_MovieSelected.actorsName.split(","))
-st.write(df_MovieSelected.directorsName.split(","))
 
 ActorList_list = st.sidebar.multiselect("Select Actor", df_MovieSelected.actorsName.split(","))
 DirectorList_list = st.sidebar.multiselect("Select Actor", df_MovieSelected.directorsName.split(","))
@@ -52,7 +50,5 @@ if st.button('Director'):
   st.write(df_Movies.iloc[x-1]["directorsName"])
   df_Display = df_Movies.sort_values(by=['directorsName'])[0:5]
   
-st.dataframe(df_Display)
-
 x = st.slider('x',1,5)
 DisplayPoster(df_Display.iloc[x-1]["posterURL"])
