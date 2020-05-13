@@ -24,7 +24,7 @@ def DisplayDataFrame(GenreList,DirectorList,ActorList):
   
 df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
 df_MovieSelected = df_Movies.iloc[0]
-
+st.write(df_Movies.shape)
 # Define Side Menu ----------------------------------------------
 
 #Checkbox for Hospitals
