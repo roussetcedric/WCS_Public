@@ -18,9 +18,7 @@ def DisplayDataFrame(GenreList,DirectorList,ActorList):
   st.write(ActorList)
   st.write(DirectorList)
   st.write(GenreList)
-  st.write(df_Movies.shape)
-  df_Display = df_Movies[df_Movies["genres"].str.contains(GenreList)]
-  st.write(df_Display.shape)
+  df_Display = df_Movies[df_Movies["genres"].str.contains('|'.join(GenreList))]
   
 df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
 df_MovieSelected = df_Movies.iloc[0]
