@@ -16,12 +16,15 @@ def DisplayPoster(UrlToDisplay) :
 def DisplayDataFrame(GenreList,DirectorList,ActorList):
   st.write("DisplayDataFrameModule")
   st.write(ActorList)
+  df_DisplayLocal = df_Movies[df_Movies["actorsName"].str.contains('|'.join(ActorList))]
   st.write(DirectorList)
+  df_DisplayLocal = df_DisplayLocal[df_DisplayLocal["directorsName"].str.contains('|'.join(DirectorList))]
   st.write(GenreList)
-  df_DisplayLocal = df_Movies[df_Movies["genres"].str.contains('|'.join(GenreList))]
+  df_DisplayLocal = df_DisplayLocal[df_DisplayLocal["genres"].str.contains('|'.join(GenreList))]
   return df_DisplayLocal
   
-df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
+#df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
+df_Movies = pd.read_csv("https://drive.google.com/uc?id=10gZ-OIbxeylhxkHwxsar3D6FWj7c1qCg")
 df_MovieSelected = df_Movies.iloc[0]
 st.dataframe(df_Movies)
 # Define Side Menu ----------------------------------------------
