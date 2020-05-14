@@ -51,16 +51,16 @@ st.dataframe(df_MovieSelected["primaryTitle"])
 MovieSelectedTitle = st.selectbox('Choose your film ?', df_MovieSelected["primaryTitle"].tolist())
 st.write('You selected:', MovieSelectedTitle)
 df_MovieSelectedOne = df_Movies[df_Movies["primaryTitle"] == MovieSelectedTitle]
+st.dataframe(df_MovieSelectedOne)
 
 # Define Side Menu ----------------------------------------------
 st.sidebar.title("Film Filters")
-
 ActorList_list = st.sidebar.multiselect("Select Actor", df_MovieSelectedOne.actorsName.split(","))
 DirectorList_list = st.sidebar.multiselect("Select Director", df_MovieSelectedOne.directorsName.split(","))
 GenreList_list = st.sidebar.multiselect("Select Genre", df_MovieSelectedOne.genres.split(","))
 
 df_Display = DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
-st.dataframe(df_Display.iloc[0:10])
+st.dataframe(df_Display)
 
 # Define the Main Page
 if st.button('Validation des Parametres'):
