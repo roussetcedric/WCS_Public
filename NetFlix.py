@@ -70,9 +70,9 @@ DisplayPoster(get_poster_from_api(df_MovieSelectedOne["tconst"]))
 
 # Define Side Menu ----------------------------------------------
 st.sidebar.title("Film Filters")
-ActorList_list = st.sidebar.multiselect("Select Actor", ColToList(df_MovieSelectedOne.actorsName))
-DirectorList_list = st.sidebar.multiselect("Select Director", ColToList(df_MovieSelectedOne.directorsName))
-GenreList_list = st.sidebar.multiselect("Select Genre", ColToList(df_MovieSelectedOne.genres))
+ActorList_list = st.sidebar.multiselect("Select Actor", df_MovieSelectedOne.actorsName)
+DirectorList_list = st.sidebar.multiselect("Select Director", df_MovieSelectedOne.directorsName)
+GenreList_list = st.sidebar.multiselect("Select Genre", df_MovieSelectedOne.genres)
 
 df_Display = DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
 st.dataframe(df_Display)
