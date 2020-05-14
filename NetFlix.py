@@ -32,7 +32,6 @@ def DisplayDataFrame(GenreList,DirectorList,ActorList):
   return df_DisplayLocal
 
 def get_poster_from_api(movie_id):
-    st.write("movie_id : ", movie_id)
     MOVIEDB_API_KEY = '076f7a313a578e7764aa7344b143bc30'
     poster_base_url = 'https://image.tmdb.org/t/p/original'
     poster_url = ''
@@ -58,16 +57,13 @@ df_MovieSelected = df_Movies[df_Movies["primaryTitle"].str.contains(title)]
 st.dataframe(df_MovieSelected["primaryTitle"])
 MovieSelectedTitle = st.selectbox('Choose your film ?', df_MovieSelected["primaryTitle"].tolist())
 df_MovieSelectedOne = df_Movies[df_Movies["primaryTitle"] == MovieSelectedTitle]
-st.dataframe(df_MovieSelectedOne)
-st.write(df_MovieSelectedOne["tconst"])
-st.write(get_poster_from_api(df_MovieSelectedOne["tconst"]))
 DisplayPoster(get_poster_from_api(df_MovieSelectedOne.iloc[0]["tconst"]))
 
 # Define Side Menu ----------------------------------------------
 st.sidebar.title("Film Filters")
-ActorList_list = st.sidebar.multiselect("Select Actor", df_MovieSelectedOne.actorsName)
-DirectorList_list = st.sidebar.multiselect("Select Director", df_MovieSelectedOne.directorsName)
-GenreList_list = st.sidebar.multiselect("Select Genre", df_MovieSelectedOne.genres)
+ActorList_list = st.sidebar.multiselect("Select Actor", df_MovieSelectedOne.iloc[0]["actorsName"])
+DirectorList_list = st.sidebar.multiselect("Select Director", df_MovieSelectedOne.iloc[0]["directorsName"])
+GenreList_list = st.sidebar.multiselect("Select Genre", df_MovieSelectedOne.iloc[0]["genres"])
 
 df_Display = DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
 st.dataframe(df_Display)
