@@ -10,7 +10,8 @@ import time
 
 # Load Data -----------------------------------------------------
 # df_Movies = pd.read_csv("https://drive.google.com/uc?id=10gZ-OIbxeylhxkHwxsar3D6FWj7c1qCg")
-df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS_Public/master/imdb_movies_light.csv")
+# df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS_Public/master/imdb_movies_light.csv")
+df_Movies = []
 
 # Define Function --------------------------------------------
 def DisplayPoster(UrlToDisplay) :
@@ -51,6 +52,10 @@ def ColToList(Param):
   return ListTemp
 
 # Define Main Programm
+
+if st.button('Load Films'):
+  df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS_Public/master/imdb_movies_light.csv")
+
 my_bar = st.progress(0)
 for percent_complete in range(100):
   time.sleep(0.01)
@@ -72,10 +77,6 @@ GenreList_list = st.sidebar.multiselect("Select Genre", ColToList(df_MovieSelect
 
 df_Display = DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
 st.dataframe(df_Display)
-
-# Define the Main Page
-if st.button('Validation des Parametres'):
-  st.write('Validation des Parametres')
   
 x = st.slider('x',1,5)
 DisplayPoster(get_poster_from_api(df_Display.iloc[x-1]["tconst"]))
