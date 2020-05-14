@@ -55,9 +55,12 @@ st.dataframe(df_MovieSelectedOne)
 
 # Define Side Menu ----------------------------------------------
 st.sidebar.title("Film Filters")
-ActorList_list = st.sidebar.multiselect("Select Actor", df_MovieSelectedOne.actorsName.split(","))
-DirectorList_list = st.sidebar.multiselect("Select Director", df_MovieSelectedOne.directorsName.split(","))
-GenreList_list = st.sidebar.multiselect("Select Genre", df_MovieSelectedOne.genres.split(","))
+st.write(df_MovieSelectedOne.actorsName)
+ActorList_list = st.sidebar.multiselect("Select Actor", df_MovieSelectedOne.actorsName)
+st.write(df_MovieSelectedOne.directorsName)
+DirectorList_list = st.sidebar.multiselect("Select Director", df_MovieSelectedOne.directorsName)
+st.write(df_MovieSelectedOne.genres)
+GenreList_list = st.sidebar.multiselect("Select Genre", df_MovieSelectedOne.genres)
 
 df_Display = DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
 st.dataframe(df_Display)
