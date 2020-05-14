@@ -32,6 +32,7 @@ def DisplayDataFrame(GenreList,DirectorList,ActorList):
   return df_DisplayLocal
 
 def get_poster_from_api(movie_id):
+    st.write("movie_id : ", movie_id)
     MOVIEDB_API_KEY = '076f7a313a578e7764aa7344b143bc30'
     poster_base_url = 'https://image.tmdb.org/t/p/original'
     poster_url = ''
