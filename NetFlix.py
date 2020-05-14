@@ -41,12 +41,19 @@ def get_poster_from_api(movie_id):
        urls_array = ""
     st.write(urls_array)
     return urls_array
+  
+def ColToList(Param):
+  st.write(Param)
+  ListTemp = []
+  for element in range(Param.split(",")):
+    ListTemp.append(element)
+  return ListTemp
 
 # Define Main Programm
 my_bar = st.progress(0)
-for percent_complete in range(10):
-  time.sleep(0.1)
-  my_bar.progress(percent_complete + 10)
+for percent_complete in range(100):
+  time.sleep(0.01)
+  my_bar.progress(percent_complete + 1)
 #df_Movies = pd.read_csv("https://drive.google.com/uc?id=10gZ-OIbxeylhxkHwxsar3D6FWj7c1qCg")
 df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS_Public/master/imdb_movies_light.csv")
 #Select Movie
@@ -59,10 +66,9 @@ DisplayPoster(get_poster_from_api(df_MovieSelectedOne["tconst"]))
 
 # Define Side Menu ----------------------------------------------
 st.sidebar.title("Film Filters")
-st.write(df_MovieSelectedOne.actorsName.str.split(","))
-ActorList_list = st.sidebar.multiselect("Select Actor", df_MovieSelectedOne.actorsName.str.split(","))
-DirectorList_list = st.sidebar.multiselect("Select Director", df_MovieSelectedOne.directorsName.str.split(","))
-GenreList_list = st.sidebar.multiselect("Select Genre", df_MovieSelectedOne.genres.str.split(","))
+ActorList_list = st.sidebar.multiselect("Select Actor", ColToList(df_MovieSelectedOne.actorsName))
+DirectorList_list = st.sidebar.multiselect("Select Director", ColToList(df_MovieSelectedOne.directorsName))
+GenreList_list = st.sidebar.multiselect("Select Genre", ColToList(df_MovieSelectedOne.genres))
 
 df_Display = DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
 st.dataframe(df_Display)
