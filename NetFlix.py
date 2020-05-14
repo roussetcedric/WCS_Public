@@ -25,7 +25,7 @@ def DisplayDataFrame(GenreList,DirectorList,ActorList):
 
 import time
 my_bar = st.progress(0)
-for percent_complete in range(100):
+for percent_complete in range(101):
   time.sleep(0.1)
   my_bar.progress(percent_complete + 10)
 #df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
