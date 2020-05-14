@@ -41,7 +41,7 @@ def get_poster_from_api(movie_id):
             data = json.loads(response.read())
         poster_url = poster_base_url+data['movie_results'][0]['poster_path']
     except:
-        poster_url = ''
+        poster_url = "https://raw.githubusercontent.com/roussetcedric/WCS_Public/master/pngtree-latest-movie-poster-design-image_163485.jpg"
     return poster_url
   
 # Define Main Programm
