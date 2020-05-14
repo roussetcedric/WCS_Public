@@ -45,7 +45,7 @@ def get_poster_from_api(movie_id):
 def ColToList(Param):
   st.write(Param)
   ListTemp = []
-  for element in range(Param.split(",")):
+  for element in Param.split(",") :
     ListTemp.append(element)
   return ListTemp
 
