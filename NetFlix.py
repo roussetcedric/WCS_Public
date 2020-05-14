@@ -8,6 +8,10 @@ import urllib.request
 from bs4 import BeautifulSoup
 import time
 
+# Load Data -----------------------------------------------------
+# df_Movies = pd.read_csv("https://drive.google.com/uc?id=10gZ-OIbxeylhxkHwxsar3D6FWj7c1qCg")
+df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS_Public/master/imdb_movies_light.csv")
+
 # Define Function --------------------------------------------
 def DisplayPoster(UrlToDisplay) :
   if UrlToDisplay :
@@ -54,8 +58,7 @@ my_bar = st.progress(0)
 for percent_complete in range(100):
   time.sleep(0.01)
   my_bar.progress(percent_complete + 1)
-#df_Movies = pd.read_csv("https://drive.google.com/uc?id=10gZ-OIbxeylhxkHwxsar3D6FWj7c1qCg")
-df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS_Public/master/imdb_movies_light.csv")
+
 #Select Movie
 title = st.text_input('Choose your film', 'Type your film here !')
 df_MovieSelected = df_Movies[df_Movies["primaryTitle"].str.contains(title)]
