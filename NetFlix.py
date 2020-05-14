@@ -47,7 +47,8 @@ df_Movies = pd.read_csv("https://drive.google.com/uc?id=10gZ-OIbxeylhxkHwxsar3D6
 title = st.text_input('Movie title', 'Type your film here !')
 st.write('The current movie title is', title)
 df_MovieSelected = df_Movies[df_Movies["primaryTitle"].str.contains(title)]
-MovieSelectedTitle = st.selectbox('Choose your film ?', df_MovieSelected["primaryTitle"])
+st.dataframe(df_MovieSelected["primaryTitle"])
+MovieSelectedTitle = st.selectbox('Choose your film ?', df_MovieSelected["primaryTitle"].tolist())
 st.write('You selected:', MovieSelectedTitle)
 df_MovieSelectedOne = df_Movies[df_Movies["primaryTitle"] == MovieSelectedTitle]
 
