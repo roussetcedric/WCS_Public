@@ -22,19 +22,27 @@ def DisplayDataFrame(GenreList,DirectorList,ActorList):
   st.write(GenreList)
   df_DisplayLocal = df_DisplayLocal[df_DisplayLocal["genres"].str.contains('|'.join(GenreList))]
   return df_DisplayLocal
-  
+
+import time
+my_bar = st.progress(0)
+for percent_complete in range(100):
+  time.sleep(0.1)
+  my_bar.progress(percent_complete + 10)
 #df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
 df_Movies = pd.read_csv("https://drive.google.com/uc?id=10gZ-OIbxeylhxkHwxsar3D6FWj7c1qCg")
-df_MovieSelected = df_Movies.iloc[0]
-# st.dataframe(df_Movies)
-# Define Side Menu ----------------------------------------------
+#Select Movie
+title = st.text_input('Movie title', 'Life of Brian')
+st.write('The current movie title is', title)
+df_MovieSelected = df_Movies[df_Movies["primaryTitle"].str.contains(title)]
+st.dataframe(df_MovieSelected.iloc[0:10])
+df_MovieSelectedOne = df_MovieSelected.iloc[0]
 
-#Checkbox for Hospitals
+# Define Side Menu ----------------------------------------------
 st.sidebar.title("Film Filters")
 
-ActorList_list = st.sidebar.multiselect("Select Actor", df_MovieSelected.actorsName.split(","))
-DirectorList_list = st.sidebar.multiselect("Select Director", df_MovieSelected.directorsName.split(","))
-GenreList_list = st.sidebar.multiselect("Select Genre", df_MovieSelected.genres.split(","))
+ActorList_list = st.sidebar.multiselect("Select Actor", df_MovieSelectedOne.actorsName.split(","))
+DirectorList_list = st.sidebar.multiselect("Select Director", df_MovieSelectedOne.directorsName.split(","))
+GenreList_list = st.sidebar.multiselect("Select Genre", df_MovieSelectedOne.genres.split(","))
 
 df_Display = DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
 st.dataframe(df_Display.iloc[0:10])
