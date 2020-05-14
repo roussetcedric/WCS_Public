@@ -10,8 +10,7 @@ import time
 
 # Load Data -----------------------------------------------------
 # df_Movies = pd.read_csv("https://drive.google.com/uc?id=10gZ-OIbxeylhxkHwxsar3D6FWj7c1qCg")
-# df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS_Public/master/imdb_movies_light.csv")
-df_Movies = []
+df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS_Public/master/imdb_movies_light.csv")
 
 # Define Function --------------------------------------------
 def DisplayPoster(UrlToDisplay) :
@@ -52,9 +51,6 @@ def ColToList(Param):
   return ListTemp
 
 # Define Main Programm
-
-if st.button('Load Films'):
-  df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS_Public/master/imdb_movies_light.csv")
 
 my_bar = st.progress(0)
 for percent_complete in range(100):
