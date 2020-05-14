@@ -35,24 +35,15 @@ def get_poster_from_api(movie_id):
     MOVIEDB_API_KEY = '076f7a313a578e7764aa7344b143bc30'
     poster_base_url = 'https://image.tmdb.org/t/p/original'
     movie_url = 'https://api.themoviedb.org/3/find/' + movie_id + '?api_key='+MOVIEDB_API_KEY+'&language=fr-FR&external_source=imdb_id'
-    st.write(movie_url)
-    try:
-      with urllib.request.urlopen(movie_url) as response:
-        data = json.loads(response.read())
-        st.write(data)
-        urls_array = poster_base_url+data['movie_results'][0]['poster_path']
-    except:
-       urls_array = "https://raw.githubusercontent.com/roussetcedric/WCS_Public/master/pngtree-latest-movie-poster-design-image_163485.jpg"
+    with urllib.request.urlopen(movie_url) as :
+       data = json.loads(response.read())
+       st.write(data)
+       urls_array = poster_base_url+data['movie_results'][0]['poster_path']
+       if urls_array == [] :
+          urls_array = "https://raw.githubusercontent.com/roussetcedric/WCS_Public/master/pngtree-latest-movie-poster-design-image_163485.jpg"
     st.write(urls_array)
     return urls_array
   
-def ColToList(Param):
-  st.write(Param)
-  ListTemp = []
-  for element in Param.str.split(",") :
-    ListTemp.append(element)
-  return ListTemp
-
 # Define Main Programm
 
 my_bar = st.progress(0)
