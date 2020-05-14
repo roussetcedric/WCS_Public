@@ -57,6 +57,8 @@ df_MovieSelected = df_Movies[df_Movies["primaryTitle"].str.contains(title)]
 st.dataframe(df_MovieSelected["primaryTitle"])
 MovieSelectedTitle = st.selectbox('Choose your film ?', df_MovieSelected["primaryTitle"].tolist())
 df_MovieSelectedOne = df_Movies[df_Movies["primaryTitle"] == MovieSelectedTitle]
+st.dataframe(df_MovieSelectedOne)
+st.write(df_MovieSelectedOne["tconst"])
 DisplayPoster(get_poster_from_api(df_MovieSelectedOne["tconst"]))
 
 # Define Side Menu ----------------------------------------------
