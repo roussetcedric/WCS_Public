@@ -41,6 +41,7 @@ def get_poster_from_api(movie_id):
         urls_array = poster_base_url+data['movie_results'][0]['poster_path']
     except:
        urls_array = "https://raw.githubusercontent.com/roussetcedric/WCS_Public/master/pngtree-latest-movie-poster-design-image_163485.jpg"
+    st.write(urls_array)
     return urls_array
   
 def ColToList(Param):
