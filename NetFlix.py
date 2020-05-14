@@ -23,6 +23,19 @@ def DisplayDataFrame(GenreList,DirectorList,ActorList):
   df_DisplayLocal = df_DisplayLocal[df_DisplayLocal["genres"].str.contains('|'.join(GenreList))]
   return df_DisplayLocal
 
+def get_poster_from_api(movie_id):
+    MOVIEDB_API_KEY = '076f7a313a578e7764aa7344b143bc30'
+    poster_base_url = 'https://image.tmdb.org/t/p/original'
+    movie_url = 'https://api.themoviedb.org/3/find/'+id+'?api_key='+MOVIEDB_API_KEY+'&language=fr-FR&external_source=imdb_id'
+    try:
+      with urllib.request.urlopen(movie_url) as response:
+        data = json.loads(response.read())
+        urls_array = poster_base_url+data['movie_results'][0]['poster_path']
+    except:
+       urls_array = ""
+    st.write(urls_array)
+    return urls_array
+
 import time
 my_bar = st.progress(0)
 for percent_complete in range(10):
@@ -31,11 +44,12 @@ for percent_complete in range(10):
 #df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS/master/imdb_movies_clean_test.csv?token=AOHB6A2PJQGD37K4XBIQ4EK6YEBVM")
 df_Movies = pd.read_csv("https://drive.google.com/uc?id=10gZ-OIbxeylhxkHwxsar3D6FWj7c1qCg")
 #Select Movie
-title = st.text_input('Movie title', 'Life of Brian')
+title = st.text_input('Movie title', 'Type your film here !')
 st.write('The current movie title is', title)
 df_MovieSelected = df_Movies[df_Movies["primaryTitle"].str.contains(title)]
-st.dataframe(df_MovieSelected.iloc[0:10])
-df_MovieSelectedOne = df_MovieSelected.iloc[0]
+MovieSelectedTitle = st.selectbox('Choose your film ?', df_MovieSelected["primaryTitle"])
+st.write('You selected:', MovieSelectedTitle)
+df_MovieSelectedOne = df_Movies[df_Movies["primaryTitle"] == MovieSelectedTitle]
 
 # Define Side Menu ----------------------------------------------
 st.sidebar.title("Film Filters")
@@ -52,4 +66,4 @@ if st.button('Validation des Parametres'):
   st.write('Validation des Parametres')
   
 x = st.slider('x',1,5)
-DisplayPoster(df_Display.iloc[x-1]["posterURL"])
+DisplayPoster(get_poster_from_api(df_Display.iloc[x-1]["tconst"]))
