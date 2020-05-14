@@ -35,7 +35,6 @@ def get_poster_from_api(movie_id):
     MOVIEDB_API_KEY = '076f7a313a578e7764aa7344b143bc30'
     poster_base_url = 'https://image.tmdb.org/t/p/original'
     movie_url = 'https://api.themoviedb.org/3/find/' + movie_id + '?api_key='+MOVIEDB_API_KEY+'&language=fr-FR&external_source=imdb_id'
-    st.write(urllib.request.urlopen(movie_url))
     try :
       with urllib.request.urlopen(movie_url) as response :
          data = json.loads(response.read())
