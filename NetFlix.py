@@ -61,7 +61,7 @@ df_MovieSelectedOne = df_Movies[df_Movies["primaryTitle"] == MovieSelectedTitle]
 st.dataframe(df_MovieSelectedOne)
 st.write(df_MovieSelectedOne["tconst"])
 st.write(get_poster_from_api(df_MovieSelectedOne["tconst"]))
-DisplayPoster(get_poster_from_api(df_MovieSelectedOne["tconst"]))
+DisplayPoster(get_poster_from_api(df_MovieSelectedOne.iloc[0]["tconst"]))
 
 # Define Side Menu ----------------------------------------------
 st.sidebar.title("Film Filters")
