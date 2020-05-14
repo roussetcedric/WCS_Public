@@ -1,8 +1,12 @@
 import streamlit as st
 import pandas as pd
 from PIL import Image
-import urllib.request
 import io
+import json
+import requests
+import urllib.request
+from bs4 import BeautifulSoup
+import time
 
 # Define Function --------------------------------------------
 def DisplayPoster(UrlToDisplay) :
@@ -37,7 +41,7 @@ def get_poster_from_api(movie_id):
     st.write(urls_array)
     return urls_array
 
-import time
+# Define Main Programm
 my_bar = st.progress(0)
 for percent_complete in range(10):
   time.sleep(0.1)
