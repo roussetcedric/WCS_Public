@@ -32,6 +32,7 @@ def get_poster_from_api(movie_id):
     MOVIEDB_API_KEY = '076f7a313a578e7764aa7344b143bc30'
     poster_base_url = 'https://image.tmdb.org/t/p/original'
     movie_url = 'https://api.themoviedb.org/3/find/' + movie_id + '?api_key='+MOVIEDB_API_KEY+'&language=fr-FR&external_source=imdb_id'
+    st.write(movie_url)
     try:
       with urllib.request.urlopen(movie_url) as response:
         data = json.loads(response.read())
@@ -46,7 +47,8 @@ my_bar = st.progress(0)
 for percent_complete in range(10):
   time.sleep(0.1)
   my_bar.progress(percent_complete + 10)
-df_Movies = pd.read_csv("https://drive.google.com/uc?id=10gZ-OIbxeylhxkHwxsar3D6FWj7c1qCg")
+#df_Movies = pd.read_csv("https://drive.google.com/uc?id=10gZ-OIbxeylhxkHwxsar3D6FWj7c1qCg")
+df_Movies = pd.read_csv("https://raw.githubusercontent.com/roussetcedric/WCS_Public/master/imdb_movies_light.csv")
 #Select Movie
 title = st.text_input('Choose your film', 'Type your film here !')
 df_MovieSelected = df_Movies[df_Movies["primaryTitle"].str.contains(title)]
