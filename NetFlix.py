@@ -50,7 +50,7 @@ def GetNameAndYear(dataFrameParam,movie):
     return df_temp
   
 # Define Main Programm
-
+st.markdown(<h2 style="color: red;">Test de Titre</h2>)
 my_bar = st.progress(0)
 for percent_complete in range(100):
   time.sleep(0.01)
