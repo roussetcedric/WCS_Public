@@ -43,7 +43,7 @@ def get_poster_from_api(movie_id):
         poster_url = "https://raw.githubusercontent.com/roussetcedric/WCS_Public/master/pngtree-latest-movie-poster-design-image_163485.jpg"
     return poster_url
   
-def GetNameAndYear(dataFrameParam):
+def GetNameAndYear(dataFrameParam,movie):
     df_temp = dataFrameParam.loc[dataFrameParam['primaryTitle'].str.lower().str.contains(movie.value.lower())][['primaryTitle', 'startYear', 'tconst']].sort_values('startYear')
     df_temp['titleYear'] = df_temp['primaryTitle'].map(str) + ' (' + df_temp['startYear'].map(str) + ')'
     df_temp['movieTuple'] = list(zip(df_temp['titleYear'], df_temp['tconst']))
@@ -59,9 +59,9 @@ for percent_complete in range(100):
 
 #Select Movie
 title = st.text_input('Cherchez votre film', 'Taper un mot clé ici !')
-df_MovieSelected = df_Movies[df_Movies["primaryTitle"].str.contains(title)]
+#df_MovieSelected = df_Movies[df_Movies["primaryTitle"].str.contains(title)]
 #st.dataframe(df_MovieSelected["primaryTitle"])
-MovieSelectedTitle = st.selectbox('Choississez votre film ?', GetNameAndYear(df_MovieSelected))
+MovieSelectedTitle = st.selectbox('Choississez votre film ?', GetNameAndYear(df_Movies,title))
 df_MovieSelectedOne = df_Movies[df_Movies["primaryTitle"] == MovieSelectedTitle]
 DisplayPoster(get_poster_from_api(df_MovieSelectedOne.iloc[0]["tconst"]))
 
