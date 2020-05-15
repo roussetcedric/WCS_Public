@@ -62,9 +62,9 @@ title = st.text_input('Cherchez votre film', 'Taper un mot clé ici !')
 #st.dataframe(df_MovieSelected["primaryTitle"])
 df_SelectedNameAndYear = GetNameAndYear(df_Movies,title)
 MovieSelectedTitle = st.selectbox('Choississez votre film ?', df_SelectedNameAndYear["titleYear"].to_list())
-IndiceFilm = df_SelectedNameAndYear[df_SelectedNameAndYear["titleYear"] == MovieSelectedTitle]["tconst"][0]
-st.write(IndiceFilm)
-df_MovieSelectedOne = df_Movies[df_Movies["tconst"] == IndiceFilm]
+IndiceFilm = df_SelectedNameAndYear[df_SelectedNameAndYear["titleYear"] == MovieSelectedTitle]["tconst"]
+st.write(IndiceFilm.iloc[0])
+df_MovieSelectedOne = df_Movies[df_Movies["tconst"] == IndiceFilm.iloc[0]]
 st.dataframe(df_MovieSelectedOne)
 DisplayPoster(get_poster_from_api(df_MovieSelectedOne.iloc[0]["tconst"]))
 # Define Side Menu ----------------------------------------------
