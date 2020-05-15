@@ -44,7 +44,7 @@ def get_poster_from_api(movie_id):
     return poster_url
   
 def GetNameAndYear(dataFrameParam,movie):
-    df_temp = dataFrameParam.loc[dataFrameParam['primaryTitle'].str.lower().str.contains(movie.value.lower())][['primaryTitle', 'startYear', 'tconst']].sort_values('startYear')
+    df_temp = dataFrameParam.loc[dataFrameParam['primaryTitle'].str.lower().str.contains(movie.lower())][['primaryTitle', 'startYear', 'tconst']].sort_values('startYear')
     df_temp['titleYear'] = df_temp['primaryTitle'].map(str) + ' (' + df_temp['startYear'].map(str) + ')'
     df_temp['movieTuple'] = list(zip(df_temp['titleYear'], df_temp['tconst']))
     choices_list = df_temp['movieTuple'].to_list()
