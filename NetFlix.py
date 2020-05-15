@@ -49,8 +49,18 @@ def GetNameAndYear(dataFrameParam,movie):
     df_temp['movieTuple'] = list(zip(df_temp['titleYear'], df_temp['tconst']))
     return df_temp
   
+# Define CSS
+st.markdown("""
+<style>
+body {
+    color: #fff;
+    background-color: #111;
+    etc. 
+}
+</style>
+    """, unsafe_allow_html=True)
+
 # Define Main Programm
-st.markdown('<style>h1{color: red;}</style>', unsafe_allow_html=True)
 my_bar = st.progress(0)
 for percent_complete in range(100):
   time.sleep(0.01)
