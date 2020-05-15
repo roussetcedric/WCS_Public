@@ -61,6 +61,8 @@ title = st.text_input('Cherchez votre film', 'Taper un mot clé ici !')
 #df_MovieSelected = df_Movies[df_Movies["primaryTitle"].str.contains(title)]
 #st.dataframe(df_MovieSelected["primaryTitle"])
 MovieSelectedTitle = st.selectbox('Choississez votre film ?', GetNameAndYear(df_Movies,title))
+st.write(MovieSelectedTitle)
+st.write(MovieSelectedTitle.split("(")[0])
 df_MovieSelectedOne = df_Movies[df_Movies["primaryTitle"] == MovieSelectedTitle.split("(")[0]]
 st.write(df_MovieSelectedOne)
 DisplayPoster(get_poster_from_api(df_MovieSelectedOne.iloc[0]["tconst"]))
