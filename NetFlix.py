@@ -46,8 +46,8 @@ def get_poster_from_api(movie_id):
 def GetNameAndYear(dataFrameParam,movie):
     df_temp = dataFrameParam.loc[dataFrameParam['primaryTitle'].str.lower().str.contains(movie.lower())][['primaryTitle', 'startYear', 'tconst']].sort_values('startYear')
     df_temp['titleYear'] = df_temp['primaryTitle'].map(str) + ' (' + df_temp['startYear'].map(str) + ')'
-    choices_list = df_temp['titleYear'].to_list()
-    return choices_list
+    df_temp['movieTuple'] = list(zip(df_temp['titleYear'], df_temp['tconst']))
+    return df_temp
   
 # Define Main Programm
 
@@ -60,11 +60,9 @@ for percent_complete in range(100):
 title = st.text_input('Cherchez votre film', 'Taper un mot clé ici !')
 #df_MovieSelected = df_Movies[df_Movies["primaryTitle"].str.contains(title)]
 #st.dataframe(df_MovieSelected["primaryTitle"])
-MovieSelectedTitle = st.selectbox('Choississez votre film ?', GetNameAndYear(df_Movies,title))
-st.write(MovieSelectedTitle)
-st.write(MovieSelectedTitle.split("(")[0])
-df_MovieSelectedOne = df_Movies[df_Movies["primaryTitle"] == MovieSelectedTitle.split("(")[0]]
-st.write(df_MovieSelectedOne)
+df_SelectedNameAndYear = GetNameAndYear(df_Movies,title)
+MovieSelectedTitle = st.selectbox('Choississez votre film ?', df_SelectedNameAndYear["titleYear"].to_list())
+df_MovieSelectedOne = df_SelectedNameAndYear[df_SelectedNameAndYear["titleYear"] == MovieSelectedTitle]
 DisplayPoster(get_poster_from_api(df_MovieSelectedOne.iloc[0]["tconst"]))
 
 # Define Side Menu ----------------------------------------------
