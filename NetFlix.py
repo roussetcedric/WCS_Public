@@ -22,7 +22,6 @@ def DisplayPoster(UrlToDisplay) :
  
 #df_Display = pd.DataFrame()
 def DisplayDataFrame(GenreList,DirectorList,ActorList):
-  st.write("DisplayDataFrameModule")
   st.write(ActorList)
   df_DisplayLocal = df_Movies[df_Movies["actorsName"].str.contains('|'.join(ActorList))]
   st.write(DirectorList)
@@ -52,10 +51,10 @@ for percent_complete in range(100):
   my_bar.progress(percent_complete + 1)
 
 #Select Movie
-title = st.text_input('Choose your film', 'Type your film here !')
+title = st.text_input('Cherchez votre film', 'Taper un mot clé ici !')
 df_MovieSelected = df_Movies[df_Movies["primaryTitle"].str.contains(title)]
-st.dataframe(df_MovieSelected["primaryTitle"])
-MovieSelectedTitle = st.selectbox('Choose your film ?', df_MovieSelected["primaryTitle"].tolist())
+#st.dataframe(df_MovieSelected["primaryTitle"])
+MovieSelectedTitle = st.selectbox('Choississez votre film ?', df_MovieSelected["primaryTitle"].tolist())
 df_MovieSelectedOne = df_Movies[df_Movies["primaryTitle"] == MovieSelectedTitle]
 DisplayPoster(get_poster_from_api(df_MovieSelectedOne.iloc[0]["tconst"]))
 
@@ -66,7 +65,7 @@ DirectorList_list = st.sidebar.multiselect("Select Director", df_MovieSelectedOn
 GenreList_list = st.sidebar.multiselect("Select Genre", df_MovieSelectedOne.iloc[0]["genres"].split(","))
 
 df_Display = DisplayDataFrame(GenreList_list,DirectorList_list,ActorList_list)
-st.dataframe(df_Display)
+#st.dataframe(df_Display)
   
 x = st.slider('x',1,5)
 DisplayPoster(get_poster_from_api(df_Display.iloc[x-1]["tconst"]))
