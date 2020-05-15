@@ -43,7 +43,7 @@ def get_poster_from_api(movie_id):
         poster_url = "https://raw.githubusercontent.com/roussetcedric/WCS_Public/master/pngtree-latest-movie-poster-design-image_163485.jpg"
     return poster_url
   
-def GetNameAndYear(dataFrameParam)
+def GetNameAndYear(dataFrameParam):
     df_temp = dataFrameParam.loc[dataFrameParam['primaryTitle'].str.lower().str.contains(movie.value.lower())][['primaryTitle', 'startYear', 'tconst']].sort_values('startYear')
     df_temp['titleYear'] = df_temp['primaryTitle'].map(str) + ' (' + df_temp['startYear'].map(str) + ')'
     df_temp['movieTuple'] = list(zip(df_temp['titleYear'], df_temp['tconst']))
