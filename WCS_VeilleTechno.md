@@ -1,7 +1,10 @@
 # DATA ANALYSIS
 * [Medium](https://medium.com/) : Site de Généralisation sur la Data Science
-* [Ledatascientist](https://ledatascientist.com/) : Site de Généralisation sur la Data Science
+* [LeBigData](https://www.lebigdata.fr/) : Site de Généralisation sur la Data Science
+* [LeDataScientist](https://ledatascientist.com/) : Site de Généralisation sur la Data Science
 * [The Career Force](https://www.youtube.com/channel/UCwXJEwaFT5i3MKKMGdneYUA) : YouTube Channel on Data Analyst Job
+
+
 
 ## EMPLOI
 * [Emploi Developpeur 2019](https://emploi.developpez.com/actu/300374/Emploi-developpeur-2019-les-langages-les-plus-demandes-et-les-mieux-payes/) : Analyse de l'Emploi par Langage de Programmation en 2019
